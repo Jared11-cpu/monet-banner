@@ -1,1 +1,13 @@
-{ "name": "monet-banner", "owner": { "name": "Years" }, "plugins": [ { "name": "monet-banner", "source": "./", "description": "莫奈画作横幅" } ] }
+{
+  "name": "monet-banner",
+  "owner": {
+    "name": "Years"
+  },
+  "plugins": [
+    {
+      "name": "monet-banner",
+      "source": "./",
+      "description": "莫奈配色消息"
+    }
+  ]
+}

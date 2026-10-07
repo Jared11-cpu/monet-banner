@@ -1,6 +1,6 @@
 {
   "name": "monet-banner",
-  "version":"0.2.0",
-  "description": "在输入框上方显示莫奈《撑阳伞的女人》画作横幅",
+  "version": "0.3.0",
+  "description": "桌面端 Code 页对话消息换上莫奈《撑阳伞的女人》画中配色",
   "types": "./types/index.d.ts"
 }
