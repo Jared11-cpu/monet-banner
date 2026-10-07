@@ -1,0 +1,6 @@
+{
+  "name": "monet-banner",
+  "version": "0.1.0",
+  "description": "在输入框上方显示莫奈《撑阳伞的女人》画作横幅",
+  "types": "./types/index.d.ts"
+}
