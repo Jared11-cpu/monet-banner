@@ -28,3 +28,30 @@ test('/monet hides and shows the banner', async ($, on) => {
   const shown = await $.ui.mount({ plugin: 'monet-banner', surface: 'desktop', component: 'AbovePrompt', props: props(100) })
   expect(await shown.find({ type: 'Svg' })).toBeDefined()
 })
+
+test('paints messages in Monet colors on desktop only', async ($, on) => {
+  on('ui.render', $ => ({ type: 'Text', props: {}, children: ['row'] }) as never)
+  const user = await $.ui.mount({
+    plugin: 'monet-banner',
+    surface: 'desktop',
+    component: 'UserMessage',
+    props: { text: '你好', origin: { kind: 'composer' }, isExpanded: true } as never,
+  })
+  expect(await user.find({ type: 'Box', props: { backgroundColor: '#F4ECD8' } })).toBeDefined()
+
+  const reply = await $.ui.mount({
+    plugin: 'monet-banner',
+    surface: 'desktop',
+    component: 'AssistantMessage',
+    props: { text: '你好！', isFirstOfReply: true },
+  })
+  expect(await reply.find({ type: 'Box', props: { backgroundColor: '#EAF2F8' } })).toBeDefined()
+
+  const terminal = await $.ui.mount({
+    plugin: 'monet-banner',
+    surface: 'terminal',
+    component: 'AssistantMessage',
+    props: { text: '你好！', isFirstOfReply: true },
+  })
+  expect(await terminal.find({ type: 'Box', props: { backgroundColor: '#EAF2F8' } })).toBeUndefined()
+})
